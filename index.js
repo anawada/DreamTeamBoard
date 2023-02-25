@@ -13,25 +13,21 @@ const Employee = require("./lib/Employee");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
 let team = [];
 
-startProgram()
-async function startProgram(){
+// startProgram()
+// async function startProgram(){
+// createEmployee();
 
-team.push(new Manager("Andrew", 1, "test.com"))
-team.push(new Intern("Andrew", 1, "test.com"))
-team.push(new Engineer("Andrew", 1, "test.com"))
-team.push(new Manager("Andrew", 1, "test.com"))
+team.push(new Manager("Andrew", 1, "test.com"));
 
 let htmlDoc = render(team);
 
-await fs.writeFile(outputPath, htmlDoc);
-}
+
 
 // const response = await inquirer 
-function createManager() {
-inquirer.prompt([
+function createEmployee(){
+    inquirer.prompt([
         {
             name: 'managerName',
             message: "Manager Name",
@@ -56,6 +52,9 @@ inquirer.prompt([
             type: 'confirm',
             name: 'addTeamMember',
             message: 'Would you like to add a team member?',
+            when: function(answers) {
+                return !answers.addTeamMember;
+            }
         },
         {
             type: 'input',
@@ -68,4 +67,8 @@ inquirer.prompt([
 
     ])
 
+    // team.push(new Manager("Andrew", 1, "test.com"));
 }
+
+// function to write HTML file
+await fs.writeFile(outputPath, htmlDoc);
