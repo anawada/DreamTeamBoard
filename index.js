@@ -15,18 +15,12 @@ const Employee = require("./lib/Employee");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 let team = [];
 
-// startProgram()
-// async function startProgram(){
-// createEmployee();
 
-team.push(new Manager("Andrew", 1, "test.com"));
-
-let htmlDoc = render(team);
-
+function main() {
 
 
 // const response = await inquirer 
-function createEmployee(){
+function createManager(){
     inquirer.prompt([
         {
             name: 'managerName',
@@ -34,7 +28,7 @@ function createEmployee(){
             type: 'input',
         },
         {
-            name: 'employeeId',
+            name: 'managerId',
             message: "Employee ID",
             type: 'input',
         },
@@ -48,27 +42,116 @@ function createEmployee(){
             message: "Office number",
             type: 'input',
         },
+
+    ])
+    .then((answers) => {
+        const manager = new Manager(
+            answers.managerName,
+            answers.managerId,
+            answers.email,
+            answers.officeNumber
+        );
+        team.push(manager);
+
+        buildTeam();
+       
+    })
+}
+
+function createEngineer(){
+    inquirer.prompt([
         {
-            type: 'confirm',
-            name: 'addTeamMember',
-            message: 'Would you like to add a team member?',
-            when: function(answers) {
-                return !answers.addTeamMember;
-            }
+            name: 'engineerName',
+            message: "Engineer Name",
+            type: 'input',
         },
         {
+            name: 'engineerId',
+            message: "Employee ID",
             type: 'input',
-            name: 'teamMemberRole',
-            message: 'What is the team member Role? Engineer or Intern?',
-            when(answers) {
-                return answers.addTeamMember;
-            }
+        },
+        {
+            name: 'email',
+            message: "Email address",
+            type: 'input',
         },
 
     ])
+    .then((answers) => {
+        const engineer = new Engineer(
+            answers.engineerName,
+            answers.engineerId,
+            answers.email,
+        );
+        team.push(engineer);
 
-    // team.push(new Manager("Andrew", 1, "test.com"));
+        buildTeam();
+       
+    })
 }
 
-// function to write HTML file
-await fs.writeFile(outputPath, htmlDoc);
+function createIntern(){
+    inquirer.prompt([
+        {
+            name: 'internName',
+            message: "Intern Name",
+            type: 'input',
+        },
+        {
+            name: 'internId',
+            message: "Employee ID",
+            type: 'input',
+        },
+        {
+            name: 'email',
+            message: "Email address",
+            type: 'input',
+        },
+
+    ])
+    .then((answers) => {
+        const intern = new Intern(
+            answers.internName,
+            answers.internId,
+            answers.email,
+        );
+        team.push(intern);
+
+        buildTeam();
+       
+    })
+}
+
+function buildTeam() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'teamMember',
+            message: "What team member you wold like to add?",
+            choices: ["Engineer", "Intern", "I Don't need to add"],
+           
+        }
+    ])
+    .then((userOption) => {
+        switch (userOption.teamMember) {
+            case "Engineer": 
+                createEngineer();
+                break;
+            case "Intern": 
+                createIntern();
+                break;
+            default:
+                createTeam();
+        }
+    })
+}
+
+function createTeam() {
+    fs.writeFileSync(outputPath, render(team), "UTF-8")
+}
+
+
+createManager();
+};
+
+main();
