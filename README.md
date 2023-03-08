@@ -24,4 +24,3 @@ As soon this command is entered, the user will type some data about the employee
 
 Tests were provided by starter code using Jest. The code passed all the tests.
 
-
