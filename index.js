@@ -39,7 +39,7 @@ function createManager(){
         },
         {
             name: 'officeNumber',
-            message: "Office number",
+            message: "Manager's Office Number",
             type: 'input',
         },
 
@@ -49,7 +49,7 @@ function createManager(){
             answers.managerName,
             answers.managerId,
             answers.email,
-            answers.officeNumber
+            answers.officeNumber,
         );
         team.push(manager);
 
@@ -75,6 +75,11 @@ function createEngineer(){
             message: "Email address",
             type: 'input',
         },
+        {
+            name: 'gitHub',
+            message: "GitHub User",
+            type: 'input',
+        },
 
     ])
     .then((answers) => {
@@ -82,6 +87,7 @@ function createEngineer(){
             answers.engineerName,
             answers.engineerId,
             answers.email,
+            answers.gitHub,
         );
         team.push(engineer);
 
@@ -107,6 +113,11 @@ function createIntern(){
             message: "Email address",
             type: 'input',
         },
+        {
+            name: 'school',
+            message: "School",
+            type: 'input',
+        },
 
     ])
     .then((answers) => {
@@ -114,6 +125,7 @@ function createIntern(){
             answers.internName,
             answers.internId,
             answers.email,
+            answers.school,
         );
         team.push(intern);
 
@@ -128,7 +140,7 @@ function buildTeam() {
             type: 'list',
             name: 'teamMember',
             message: "What team member you wold like to add?",
-            choices: ["Engineer", "Intern", "I Don't need to add"],
+            choices: ["Engineer", "Intern", "No more employees to add, create team."],
            
         }
     ])
