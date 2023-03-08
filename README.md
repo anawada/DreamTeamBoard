@@ -17,11 +17,11 @@ To start the application use the following command in the command line:
 node index.js
 ```
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+After passing all the information you can create the team and you will be able to see a screen similar to this one. All depending on the number of employees and their role inside the team.
 
+![alt text](./assets/images/Screenshot%20.png)
 
 ## Tests
 
-Tests were provided by starter code using Jest. You have been provided with tests, so make sure every part of your code passes each provided test.
-
+Tests were provided by starter code using Jest. The application has been tested and passed all of them. 
 
