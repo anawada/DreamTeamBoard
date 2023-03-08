@@ -1,9 +1,21 @@
+.jumbotron{
+    background-color: #FF9090;
+}
+
 .team-area{
     justify-content: space-around !important;
     display: flex;
     flex-wrap: wrap;
+    gap: 15px;
 }
 
 .card {
-    margin: 10px; 
+    width: 250px;
+    height: auto;
+    min-width: 300px;
 }
+
+.card-header{
+    background-color: #89C4FF;
+}
+
