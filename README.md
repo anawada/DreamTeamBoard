@@ -1,4 +1,4 @@
-# Object-Oriented Programming: DREAM TEAM BOARD 
+# Object-Oriented Programming: Team Board
 
 ## Description 
 
@@ -8,7 +8,6 @@ This is a working Node.js command-line application. This application will take i
 
 As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
 
-
 ## Usage 
 
 To start the application use the following command in the command line:
@@ -17,11 +16,12 @@ To start the application use the following command in the command line:
 node index.js
 ```
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+As soon this command is entered, the user will type some data about the employees and a html will be generated creating a team board as in the picture. 
 
+![screenshot](./assets/images/Screenshot%20.png)
 
 ## Tests
 
-Tests were provided by starter code using Jest. You have been provided with tests, so make sure every part of your code passes each provided test.
+Tests were provided by starter code using Jest. The code passed all the tests.
 
 
