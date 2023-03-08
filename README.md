@@ -1,4 +1,4 @@
-# Object-Oriented Programming: DREAM TEAM BOARD 
+# Object-Oriented Programming: Team Board 
 
 ## Description 
 
